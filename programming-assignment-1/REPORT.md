@@ -21,7 +21,7 @@ $ cat test-hadoop/output/*
 1. Install `pyspark` using `pip install pyspark`.
 
 ## Problem 1 - Word Count 
-
+With this problem, I wanted to do two-fold comparison - Comparing the implementation technique and comparing the performance depending on the dataset size. In order to do this, I decided that my two implementation techniques would be Hadoop MapReduce and Spark MapReduce, while running them on 2 datasets of different sizes.
 ### Dataset
 I took the top 27 books from [Project Gutenberg Top 100 Ebooks](https://www.gutenberg.org/browse/scores/top), and divided them into 2 datasets.
 - **Dataset 1** - I took the top 2 ebooks and replicated them 1300 times to create a single file dataset of 1.01 GB. My main motivation with this was to create a dataset that can fit in the memory.
@@ -61,11 +61,15 @@ $> jar cf wc.jar WordCount*.class
 | **1.01 GB** | 58.59 sec | 26.11 sec |
 | **19.6 GB** | 891.4 sec | 336.77 sec |
 
-**Analysis** - As you can see Spark outperforms Hadoop MapReduce (MR) on both the datasets with quite a significant performance gap. Spark uses RAM as the cache to store the data and then perform compute on both. Hadoop MR, on the other hand, uses the disk to perform all its compute operations. Since RAM accesses is very fast compared to disk accesses, it is no surprise that Spark has outperformed Hadoop MR.
-
-There is one surprising find for me though - I half expected that the 19.6 GB dataset would be much taxing for the Spark, and the performance of Hadoop MR and Spark would be comparable (even if Spark would win out at the end). This thought arised because 19.6 GB is greater than my RAM capacity (16.0 GB). So, I thought it would be difficult for Spark to compute since it would have to bring memory from disk to RAM, and memory transfers from disks are always slow. But what might have happened in the end is that the dataset was not that quite large enough for my RAM. Even having a 16 GB RAM and a 19.6 GB dataset, the program would have to do only one memory swap between the disk and the RAM - which might not hurt the performance as much. Unfortunately, I couldn't afford to get a larger dataset, as I did not have enough memory to store the dataset, nor did I have a distributed setup to store the dataset across systems for the computation to perform. 
-
-With this analysis, it is easy to compare the runtime performance optimizations of the Hadoop MR and Spark approach on varied dataset sizes.
+### Analysis 
+**Hadoop MapReduce v/s Spark MapReduce**
+- As you can see Spark outperforms Hadoop MapReduce (MR) on both the datasets with quite a significant performance gap. Spark uses RAM as the cache to store the data and then perform compute on both. Hadoop MR, on the other hand, uses the disk to perform all its compute operations. Since RAM accesses is very fast compared to disk accesses, it is no surprise that Spark has outperformed Hadoop MR.
+- There is one surprising find for me though - I half expected that the 19.6 GB dataset would be much taxing for the Spark, and the performance of Hadoop MR and Spark would be comparable (even if Spark would win out at the end). This thought arised because 19.6 GB is greater than my RAM capacity (16.0 GB). So, I thought it would be difficult for Spark to compute since it would have to bring memory from disk to RAM, and memory transfers from disks are always slow. But what might have happened in the end is that the dataset was not that quite large enough for my RAM. Even having a 16 GB RAM and a 19.6 GB dataset, the program would have to do only one memory swap between the disk and the RAM - which might not hurt the performance as much. Unfortunately, I couldn't afford to get a larger dataset, as I did not have enough memory to store the dataset, nor did I have a distributed setup to store the dataset across systems for the computation to perform. 
+**Small Dataset v/s Big Dataset**
+- In both types of implementations, we have seen that the execution time increases with the increase in dataset size.
+- This can also be analyzed and verified from the implementation technique of the word-count program. The mappers simply go over each word and then emit the resulting mapper pair for each word. So, as the number of words increase in the dataset, the more number of iterations happen for the mappers. This means the mappers follow an `O(n)` time complexity algorithm, where `n` is the number of words in the dataset. Hence, it can be easily seen that the execution time scales linearly with dataset size.
+**General Notes**
+- With this analysis, it is easy to compare the runtime performance optimizations of the Hadoop MR and Spark approach on varied dataset sizes.
 
 ## Problem 2 - Top 100 Words occurring in the most files
 
@@ -74,6 +78,9 @@ I took the top 30 ebooks from [Project Gutenberg](https://www.gutenberg.org/brow
 1. Top 10 eBooks (5.6 MB)
 2. Top 20 eBooks (11.1 MB)
 3. Top 30 eBooks (15.9 MB)
+4. Top 30 eBooks + Top 10 eBooks (Duplicated) (21.5 MB)
+5. Top 30 eBooks + Top 20 eBooks (Duplicated) (27.0 MB)
+6. Top 30 eBooks (Duplicated 2 times) (31.8 MB)
 All the books are located here in my Georgia Tech OneDrive - https://gtvault-my.sharepoint.com/:f:/g/personal/asharma756_gatech_edu/EiXWSQTJJQVBnR7puEv0lTsBBHBlZy8kHWBne_V8ep7Xtg?e=t1RhsP
 
 ### Top 100 Words Program
@@ -100,7 +107,14 @@ $> jar cf top_100_words.jar Top100Words*.class
 | **5.6 MB** | 18.15 sec |
 | **11.1 MB** | 26.1 sec |
 | **15.9 MB** | 36.16 sec |
+| **21.5 MB** | 44.49 sec | 
+| **27.0 MB** | 52.24 sec |
+| **31.8 MB** | 60.21 sec |
 
-**Analysis** - As I had hypothesised, the performance of the Hadoop MR increases linearly as the dataset size increases for a Map Reduce operation, when the dataset size is not as large as the RAM size. This experiment helped me confirm the learnings that we saw in the class, when Prof. Liu was teaching us about MapReduce. Much effort in this problem was towards coming up with the Mapper and Reducer logic for the calculation of the top 100 words.
+![Plot for the performance times](Top100Words_result/plot.png)
 
-With this analysis, it is easy to observe the scaling effect of the Hadoop MR program on datasets of different sizes.
+### Analysis
+- As I had hypothesised, the performance of the Hadoop MR increases linearly as the dataset size increases for a Map Reduce operation, when the dataset size is not as large as the RAM size. This experiment helped me confirm the learnings that we saw in the class, when Prof. Liu was teaching us about MapReduce. I made the above graph using the code written in the [Python file](Top100Words_result/plot.py).
+- What I additionally noticed is that by default, the number of mappers are equal to the number of files in the dataset. For example, for the last dataset (with 60 files), there were 60 mappers doing the map job, i.e., one mapper for each file.
+- Much effort in this problem was towards coming up with the Mapper and Reducer logic for the calculation of the top 100 words.
+- With this analysis, it is easy to observe the scaling effect of the Hadoop MR program on datasets of different sizes.

@@ -143,7 +143,7 @@ public class Top100Words {
 
         boolean result = job.waitForCompletion(true);
         long stopTime = System.nanoTime();
-        System.out.println("TOTAL TIME TAKEN BY THE PROGRAM: " + (stopTime - startTime));
+        System.out.println("TOTAL TIME TAKEN BY THE PROGRAM: " + (stopTime - startTime) + "(ns)");
  
         System.exit(result ? 0 : 1);
     }
