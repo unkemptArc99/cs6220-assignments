@@ -1,3 +1,4 @@
+# Dataset 1
 ```
 ❯ python wordCount.py hdfs://localhost:9000/user/abhishek/wordcount/input1 hdfs://localhost:9000/user/abhishek/wordcount/output1_spark
 22/09/08 18:24:59 WARN Utils: Your hostname, abhishek-Legion-5-15ACH6 resolves to a loopback address: 127.0.1.1; using 10.2.105.41 instead (on interface wlp4s0)
@@ -13,6 +14,7 @@ Setting default log level to "WARN".
 To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
 Spend 26.119549 seconds 
 ```
+# Dataset 2
 ```
 ❯ python wordCount.py hdfs://localhost:9000/user/abhishek/wordcount/input2 hdfs://localhost:9000/user/abhishek/wordcount/output2_spark
 22/09/08 18:27:18 WARN Utils: Your hostname, abhishek-Legion-5-15ACH6 resolves to a loopback address: 127.0.1.1; using 10.2.105.41 instead (on interface wlp4s0)

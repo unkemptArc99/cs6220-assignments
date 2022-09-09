@@ -1,3 +1,4 @@
+# Dataset 1
 ```
 ❯ hadoop jar wc.jar WordCount /user/abhishek/wordcount/input1 /user/abhishek/wordcount/output1
 2022-09-08 17:35:08,410 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at /0.0.0.0:8032
@@ -89,6 +90,7 @@
                 Bytes Written=200510
 TOTAL TIME TAKEN BY THE PROGRAM: 58591088481 (ns)
 ```
+# Dataset 2
 
 ```
 ❯ hadoop jar wc.jar WordCount /user/abhishek/wordcount/input2 /user/abhishek/wordcount/output2
