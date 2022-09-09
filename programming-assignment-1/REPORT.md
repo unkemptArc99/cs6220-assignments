@@ -65,9 +65,11 @@ $> jar cf wc.jar WordCount*.class
 **Hadoop MapReduce v/s Spark MapReduce**
 - As you can see Spark outperforms Hadoop MapReduce (MR) on both the datasets with quite a significant performance gap. Spark uses RAM as the cache to store the data and then perform compute on both. Hadoop MR, on the other hand, uses the disk to perform all its compute operations. Since RAM accesses is very fast compared to disk accesses, it is no surprise that Spark has outperformed Hadoop MR.
 - There is one surprising find for me though - I half expected that the 19.6 GB dataset would be much taxing for the Spark, and the performance of Hadoop MR and Spark would be comparable (even if Spark would win out at the end). This thought arised because 19.6 GB is greater than my RAM capacity (16.0 GB). So, I thought it would be difficult for Spark to compute since it would have to bring memory from disk to RAM, and memory transfers from disks are always slow. But what might have happened in the end is that the dataset was not that quite large enough for my RAM. Even having a 16 GB RAM and a 19.6 GB dataset, the program would have to do only one memory swap between the disk and the RAM - which might not hurt the performance as much. Unfortunately, I couldn't afford to get a larger dataset, as I did not have enough memory to store the dataset, nor did I have a distributed setup to store the dataset across systems for the computation to perform. 
+
 **Small Dataset v/s Big Dataset**
 - In both types of implementations, we have seen that the execution time increases with the increase in dataset size.
 - This can also be analyzed and verified from the implementation technique of the word-count program. The mappers simply go over each word and then emit the resulting mapper pair for each word. So, as the number of words increase in the dataset, the more number of iterations happen for the mappers. This means the mappers follow an `O(n)` time complexity algorithm, where `n` is the number of words in the dataset. Hence, it can be easily seen that the execution time scales linearly with dataset size.
+
 **General Notes**
 - With this analysis, it is easy to compare the runtime performance optimizations of the Hadoop MR and Spark approach on varied dataset sizes.
 
