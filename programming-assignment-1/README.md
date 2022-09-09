@@ -33,6 +33,8 @@ I took the top 27 books from [Project Gutenberg Top 100 Ebooks](https://www.gute
 
 1. Write the code in [the Java file](WordCount_Hadoop/WordCount.java).
    - The source code consists of 2 sub-classes of the main class `WordCount` - a Mapper (`TokenizerMapper`) and a Reducer (`IntSumReducer`).
+   - The Mapper simply writes a pair of word and count 1 tot he reducer.
+   - The Reducer takes those count and aggregates them from a specific word.
 2. Compile the code to create the .jar file for execution by the following commands -
 ```
 $> hadoop com.sun.tools.javac.Main WordCount.java
@@ -59,6 +61,10 @@ $> jar cf wc.jar WordCount*.class
 | 1.01 GB | 58.59 sec | 26.11 sec |
 | 19.6 GB | 891.4 sec | 336.77 sec |
 
+**Analysis** - As you can see Spark outperforms Hadoop MapReduce (MR) on both the datasets with quite a significant performance gap. Spark uses RAM as the cache to store the data and then perform compute on both. Hadoop MR, on the other hand, uses the disk to perform all its compute operations. Since RAM accesses is very fast compared to disk accesses, it is no surprise that Spark has outperformed Hadoop MR.
+
+There is one surprising find for me though - I half expected that the 19.6 GB dataset would be much taxing for the Spark, and the performance of Hadoop MR and Spark would be comparable (even if Spark would win out at the end). This thought arised because 19.6 GB is greater than my RAM capacity (16.0 GB). So, I thought it would be difficult for Spark to compute since it would have to bring memory from disk to RAM, and memory transfers from disks are always slow. But what might have happened in the end is that the dataset was not that quite large enough for my RAM. Even having a 16 GB RAM and a 19.6 GB dataset, the program would have to do only one memory swap between the disk and the RAM - which might not hurt the performance as much. Unfortunately, I couldn't afford to get a larger dataset, as I did not have enough memory to store the dataset, nor did I have a distributed setup to store the dataset across systems for the computation to perform. 
+
 ## Problem 2 - Top 100 Words occurring in the most files
 
 ### Dataset
@@ -71,6 +77,7 @@ All the books are located here in my Georgia Tech OneDrive - https://gtvault-my.
 ### Top 100 Words Program
 (Adapted using idea mentioned in the following article - https://www.geeksforgeeks.org/how-to-find-top-n-records-using-mapreduce/)
 
+My approach for the problem - 
 1. For the mapper process, we use a hash map to track the number of occurrences of each word.
    - At the end of going through the input split, the mapper choses the top 100 occurences, and then writes them to the reducer class.
 2. For the reducer process, we take the mapper context from all the mappers, and group them to one hash map and then trim them to the top 100 occurrences - which would be the result.
@@ -92,4 +99,4 @@ $> jar cf top_100_words.jar Top100Words*.class
 | 11.1 MB | 26.1 sec |
 | 15.9 MB | 36.16 sec |
 
-
+**Analysis** - As I had hypothesised, the performance of the Hadoop MR increases linearly as the dataset size increases for a Map Reduce operation, when the dataset size is not as large as the RAM size. This experiment helped me confirm the learnings that we saw in the class, when Prof. Liu was teaching us about MapReduce.
