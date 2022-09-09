@@ -41,7 +41,7 @@ $> hadoop com.sun.tools.javac.Main WordCount.java
 $> jar cf wc.jar WordCount*.class
 ```
 3. Execute the word count program. All the execution is mentioned in the [execution command file](Hadoop_WordCount_results/Hadoop_WC_execution_commands.md).
-4. All the results are in [Hadoop_WordCount_results](Hadoop_WordCount_results) folder and the wordcount results/outputs are located at the following [OneDrive location](https://gtvault-my.sharepoint.com/:f:/g/personal/asharma756_gatech_edu/Eq0KmSxhGxpJkOW_iOd8OgEBX7CWJJQo4Yd8YaRaZ7GnuA?e=3aqeRD)
+4. All the executions and YARN server dashboard results are in [Hadoop_WordCount_results](Hadoop_WordCount_results) folder and the wordcount results/outputs are located at the following [OneDrive location](https://gtvault-my.sharepoint.com/:f:/g/personal/asharma756_gatech_edu/Eq0KmSxhGxpJkOW_iOd8OgEBX7CWJJQo4Yd8YaRaZ7GnuA?e=3aqeRD)
 
 ![Hadoop Execution](screenshots/terminal_execution_hadoop.png)
 
@@ -51,7 +51,7 @@ $> jar cf wc.jar WordCount*.class
 1. Write the code in [the Python file](WordCount_Spark/wordCount.py).
    - The source code simply consists of a map function and a reduce function coded in a functional paradigm.
 2. Execute the word count program. All the execution commands is mentioned in the [execution command file](Spark_WordCount_results/Spark_WC_execution_commands.md).
-3. All the results are in [Spark_WordCount_results](Spark_WordCount_results) and the wordcount results/outputs are located at the following [OneDrive location](https://gtvault-my.sharepoint.com/:f:/g/personal/asharma756_gatech_edu/EtOCJEjlxcRCnLJidnKafUkBB5iMEsnyJ_l3kF06ZySSxg?e=iobj40).
+3. All the executions are in [Spark_WordCount_results](Spark_WordCount_results) folder and the wordcount results/outputs are located at the following [OneDrive location](https://gtvault-my.sharepoint.com/:f:/g/personal/asharma756_gatech_edu/EtOCJEjlxcRCnLJidnKafUkBB5iMEsnyJ_l3kF06ZySSxg?e=iobj40).
 
 ![Spark Execution](screenshots/terminal_execution_spark.png)
 
@@ -88,7 +88,7 @@ $> hadoop com.sun.tools.javac.Main Top100Words.java
 $> jar cf top_100_words.jar Top100Words*.class
 ```
 5. Execute the program by the commands listed in the [markdown file](Top100Words_result/Top100Words_execution_commands.md).
-6. All the results are located in the `Top10Words_result` folder located at my Georgia Tech OneDrive - https://gtvault-my.sharepoint.com/:f:/g/personal/asharma756_gatech_edu/EiIsIIuO4wBBmVMkFe4lymoBtootssH6vhhd7AWwIBihdA?e=R5XhGV
+6. All the executions are located in the [Top10Words_result](Top100Words_result) folder and all the outputs are located at my [Georgia Tech OneDrive folder](https://gtvault-my.sharepoint.com/:f:/g/personal/asharma756_gatech_edu/EiIsIIuO4wBBmVMkFe4lymoBtootssH6vhhd7AWwIBihdA?e=R5XhGV)
 
 ![Top 100 Words Program Execution](screenshots/terminal_execution_top_100_words.png)
 
