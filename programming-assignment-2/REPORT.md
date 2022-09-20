@@ -15,9 +15,32 @@
       ![MNIST Dataset](mnist-dataset.png)
       2) *CIFAR-10* - The CIFAR-10 is an image dataset consisting of 50000 training images and 10000 test images 32x32 color images in 10 classes. Class-wise distribution is equal with 6000 images per class. The 10 classes are airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck. It is a popular dataset for classification problem, collected at University of Toronto.
       ![CIFAR Dataset](cifar-dataset.png)
+2) **Provide a summary of the two attack algorithms of your choice.**
+   1) *FGSM Attack* - FGSM was introduced by Goodfellow et al. in their paper, “Explaining and Harnessing Adversarial Examples”[4]. It exploits the gradients of a neural network to build an adversarial image. FGSM calculates the loss function after forward propagation of an image and then calculates the gradient with for every pixels of the image. It then uses the sign of the gradients to shift the pixels of the image in the direction of sign by a small amount that maximizes the loss  above. The resulting image looks identical to humans but is misclassified by the model as we moved the pixels to maximize the loss.
+   2) *DeepFool Attack* - DeepFool was introduced by Moosavi-Dezfooli et al. In the paper “DeepFool: A Simple and Accurate Method to Fool Deep Neural Networks”[5]. It is a Whitebox attack in which the close direction to the decision boundary is computed in every step to update the image. It is equivalent to minimizing the decision boundary between the various classes as a result of which the model misclassifies the adversarial images.
+3) Provide the attack examples you generated for the 10 examples you listed in 1)
+   1) *FGSM Attack* 
+      1) MNIST Dataset - ![FGSM Attack on MNIST](mnist-fgsm-dataset.png)
+      2) CIFAR Dataset - ![FGSM Attack on CIFAR](cifar-fgsm-dataset.png)
+   2) *DeepFool Attack*
+      1) MNIST Dataset - ![DeepFool Attack on MNIST](mnist-df-dataset.png)
+      2) CIFAR Dataset - ![DeepFool Attack on CIFAR](cifar-df-dataset.png)
 
-
+### Output Analysis
+1) **Include a note that you have provided your answer to the questionnaire posted as quiz 1 on Canvas (under quizzes), refer to requirement 2) above**
+   1) I have completed the Quiz 1
+2) **Provide test accuracy measurement and average test time per example of the two well trained models under no attack.**
+   | Model and Dataset | Test accuracy measurement | Avg Test Time Per Example |
+   | CNN 7-layer on MNIST | 99.43% | 0.000196 seconds |
+   | DenseNet40 on CIFAR10 | 94.84% | 0.012034 seconds |
+   
 ## References
 [1] Huang, Gao, et al. "Densely connected convolutional networks." Proceedings of the IEEE conference on computer vision and pattern recognition. 2017
+
 [2] Huy Phan. (2021). huyvnphan/PyTorch_CIFAR10 (v3.0.1). Zenodo. https://doi.org/10.5281/zenodo.4431043
+
 [3] Simonyan, Karen, and Andrew Zisserman. "Very deep convolutional networks for large-scale image recognition." arXiv preprint arXiv:1409.1556 (2014).
+
+[4] Goodfellow, I.J., Shlens, J. and Szegedy, C., 2014. Explaining and harnessing adversarial examples. arXiv preprint arXiv:1412.6572.
+
+[5] Moosavi-Dezfooli, S.M., Fawzi, A. and Frossard, P., 2016. Deepfool: a simple and accurate method to fool deep neural networks. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 2574-2582).
