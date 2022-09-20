@@ -1,3 +1,6 @@
 [submodule "programming-assignment-2/GTAttackPod"]
 	path = programming-assignment-2/GTAttackPod
 	url = git@github.com:unkemptArc99/GTAttackPod.git
+[submodule "programming-assignment-2/PyTorch_CIFAR10"]
+	path = programming-assignment-2/PyTorch_CIFAR10
+	url = https://github.com/huyvnphan/PyTorch_CIFAR10
