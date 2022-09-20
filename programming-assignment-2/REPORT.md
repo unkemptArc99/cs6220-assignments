@@ -30,9 +30,10 @@
 1) **Include a note that you have provided your answer to the questionnaire posted as quiz 1 on Canvas (under quizzes), refer to requirement 2) above**
    1) I have completed the Quiz 1
 2) **Provide test accuracy measurement and average test time per example of the two well trained models under no attack.**
-   | Model and Dataset | Test accuracy measurement | Avg Test Time Per Example |
-   | CNN 7-layer on MNIST | 99.43% | 0.000196 seconds |
-   | DenseNet40 on CIFAR10 | 94.84% | 0.012034 seconds |
+
+| Model and Dataset | Test accuracy measurement | Avg Test Time Per Example |
+| CNN 7-layer on MNIST | 99.43% | 0.000196 seconds |
+| DenseNet40 on CIFAR10 | 94.84% | 0.012034 seconds |
    
 ## References
 [1] Huang, Gao, et al. "Densely connected convolutional networks." Proceedings of the IEEE conference on computer vision and pattern recognition. 2017
