@@ -4,3 +4,6 @@
 [submodule "programming-assignment-2/PyTorch_CIFAR10"]
 	path = programming-assignment-2/PyTorch_CIFAR10
 	url = https://github.com/huyvnphan/PyTorch_CIFAR10
+[submodule "programming-assignment-2/cifar-vgg"]
+	path = programming-assignment-2/cifar-vgg
+	url = git@github.com:geifmany/cifar-vgg.git

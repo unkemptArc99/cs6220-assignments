@@ -1,0 +1,15 @@
+Loading the dataset...
+Evaluating the target model...
+Test accuracy on benign examples 99.43%
+Avg. Test time per example  - 0.000151 seconds
+Mean confidence on ground truth classes 99.39%
+Selected 100 examples.
+Test accuracy on selected benign examples 100.00%
+Mean confidence on ground truth classes, selected 100.00%
+
+>> Compiling the gradient TensorFlow functions. This might take some time...
+>> Computing gradient function...
+
+---Statistics of DeepFool Attack (0.152886 seconds per sample)
+Success rate: 100.00%, Misclassification rate: 100.00%, Mean confidence: 83.76%
+Li dist: 0.5905, L2 dist: 2.2081, L0 dist: 48.1%

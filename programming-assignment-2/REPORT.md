@@ -30,11 +30,83 @@
 1) **Include a note that you have provided your answer to the questionnaire posted as quiz 1 on Canvas (under quizzes), refer to requirement 2) above**
    1) I have completed the Quiz 1
 2) **Provide test accuracy measurement and average test time per example of the two well trained models under no attack.**
+   | Model and Dataset | Test accuracy measurement | Avg Test Time Per Example |
+   | --- | --- | --- |
+   | CNN 7-layer on MNIST | 99.43% | 0.000196 seconds |
+   | DenseNet40 on CIFAR10 | 94.84% | 0.012034 seconds |
+   ![MNIST Execution](mnist_benign_execution.png)
+   ![CIFAR Execution](cifar-benign-execution.png)
+3) **Compare the two models under attacks with the two models under no 
+attack on test accuracy and time. **
+   *Execution Results* -
+```
+$> python attack_scripts/FGSM-UA_MNIST_CNN7.py
+Loading the dataset...
+Evaluating the target model...
+Test accuracy on benign examples 99.43%
+Avg. Test time per example  - 0.000153 seconds
+Mean confidence on ground truth classes 99.39%
+Selected 100 examples.
+Test accuracy on selected benign examples 100.00%
+Mean confidence on ground truth classes, selected 100.00%
 
-| Model and Dataset | Test accuracy measurement | Avg Test Time Per Example |
-| CNN 7-layer on MNIST | 99.43% | 0.000196 seconds |
-| DenseNet40 on CIFAR10 | 94.84% | 0.012034 seconds |
-   
+
+---Statistics of FGSM Attack (0.004688 seconds per sample)
+Success rate: 46.00%, Misclassification rate: 46.00%, Mean confidence: 94.98%
+Li dist: 0.3020, L2 dist: 5.9216, L0 dist: 56.2%
+```
+```
+$> python attack_scripts/FGSM-UA_CIFAR10_DenseNet40.py
+Loading the dataset...
+Evaluating the target model...
+Test accuracy on benign examples 94.84%
+Avg. Test time per example  - 0.008318 seconds
+Mean confidence on ground truth classes 92.15%
+Selected 100 examples.
+Test accuracy on selected benign examples 100.00%
+Mean confidence on ground truth classes, selected 95.55%
+
+
+---Statistics of FGSM Attack (0.092173 seconds per sample)
+Success rate: 86.00%, Misclassification rate: 86.00%, Mean confidence: 96.89%
+Li dist: 0.0157, L2 dist: 0.8644, L0 dist: 99.8%
+```
+```
+$> python attack_scripts/DeepFool-UA_MNIST_CNN7.py
+Loading the dataset...
+Evaluating the target model...
+Test accuracy on benign examples 99.43%
+Avg. Test time per example  - 0.000151 seconds
+Mean confidence on ground truth classes 99.39%
+Selected 100 examples.
+Test accuracy on selected benign examples 100.00%
+Mean confidence on ground truth classes, selected 100.00%
+
+>> Compiling the gradient TensorFlow functions. This might take some time...
+>> Computing gradient function...
+
+---Statistics of DeepFool Attack (0.152886 seconds per sample)
+Success rate: 100.00%, Misclassification rate: 100.00%, Mean confidence: 83.76%
+Li dist: 0.5905, L2 dist: 2.2081, L0 dist: 48.1%
+```
+```
+$> python attack_scripts/DeepFool-UA_CIFAR10_DenseNet40.py
+Loading the dataset...
+Evaluating the target model...
+Test accuracy on benign examples 94.84%
+Avg. Test time per example  - 0.008175 seconds
+Mean confidence on ground truth classes 92.15%
+Selected 100 examples.
+Test accuracy on selected benign examples 100.00%
+Mean confidence on ground truth classes, selected 95.55%
+
+>> Compiling the gradient TensorFlow functions. This might take some time...
+>> Computing gradient function...
+
+---Statistics of DeepFool Attack (1.273982 seconds per sample)
+Success rate: 100.00%, Misclassification rate: 100.00%, Mean confidence: 85.80%
+Li dist: 0.0275, L2 dist: 0.2307, L0 dist: 99.1%
+```
 ## References
 [1] Huang, Gao, et al. "Densely connected convolutional networks." Proceedings of the IEEE conference on computer vision and pattern recognition. 2017
 
