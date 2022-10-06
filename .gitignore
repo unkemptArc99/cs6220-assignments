@@ -4,3 +4,4 @@ dataset/
 input*/
 reading-assignment*/
 /__pycache__/
+*.zip
