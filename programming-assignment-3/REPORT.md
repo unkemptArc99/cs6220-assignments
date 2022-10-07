@@ -302,3 +302,9 @@ Well, as you can see, it is quite easy to make model-based Collaborative Filteri
 1. http://www.gregreda.com/2013/10/26/using-pandas-on-the-movielens-dataset/
 2. https://github.com/bmidhun1/recommender_system/blob/master/AV_recommender_purchase_data.ipynb
 3. https://towardsdatascience.com/beginners-guide-to-creating-an-svd-recommender-system-1fd7326d1f65
+4. https://medium.com/analytics-vidhya/a-model-based-approach-to-build-a-recommendation-engine-1519d347cd22
+5. https://medium.com/analytics-vidhya/collaborative-based-recommendation-system-using-svd-9adc5b6b3b8
+6. https://analyticsindiamag.com/singular-value-decomposition-svd-application-recommender-system/
+7. https://realpython.com/build-recommendation-engine-collaborative-filtering/
+8. http://www.gregreda.com/2013/10/26/using-pandas-on-the-movielens-dataset/
+9. https://www.geeksforgeeks.org/singular-value-decomposition-svd/
