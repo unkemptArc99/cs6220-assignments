@@ -792,11 +792,13 @@ I will be performing performance analysis by having a look at two metrics - Over
 I have divided this section into two parts - for one we see how performance affects when dataset is scaled linearly, and next we see how it affects when dataset is scaled exponentially.
 
 When the dataset is scaled linearly, we have the following graph -
+
 ![Runtime Linear Dataset](runtime-linear.png)
 
 As you can see, most of the latency scales linearly with the dataset sizes. We can observe this pattern with any experiment type - be it bulk loading, read-only, etc.
 
 Now, lets have a look at the other part, when dataset scales exponentially. Keep in mind that the scales on this axis are on logarithmic scale.
+
 ![Runtime Exponential Dataset](runtime-exp.png)
 
 Even here, we see a linear behaviour between latency and dataset sizes until 1GB dataset size. For 10GB dataset, we see a slight shift from the linear behaviour. This can be attributed to the dataset being too large for the memory to handle each operation. But this non-linear pattern is not reflected in bulk load operation, as that is dependent on the storage bottleneck, rather than memory bottleneck.
