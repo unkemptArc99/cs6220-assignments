@@ -808,3 +808,13 @@ We find a similar pattern (as we saw in Runtime) in Throughput figures. Here is 
 ![Throughput](thput.png)
 
 As you can see, until 100MB dataset size, the throughput scales linearly. But for 1GB and 10GB datasets, throughput starts to fall down linearly, because of memory bottleneck. Even bulk loading of dataset suffers in throughput, but not as bad as other operations.
+
+### Focus - Operations' P99 Analysis
+The pattern is somewhat replicated in P99s of different database operations (READ, UPDATE, and INSERT). Here is a graph of the same -
+![P99 Latencies](p99.png)
+
+For intial datasets, as data grows into memory, each subsequent operation gets faster on average, since there is a lot of context about the data in the memory. Hence, 1MB data has significantly higher P99 latency than let's say, 10MB data. But, from 1GB data onwards, P99 values again suffer due to the context being so large that it would not fit in the memory.
+
+## Conclusion
+
+In most cases, MongoDB's performance scales linearly with the dataset sizes - if it is know that dataset sizes can fit within the memory. The performance deteriorates sharply (not enough data to call it either exponentially, or any other polynomial term), when the dataset size is larger than the memory size.
