@@ -1,0 +1,228 @@
+- Words similar to "man"
+  - woman: 0.6269
+  - boy: 0.6094
+  - doctor: 0.5976
+  - soldier: 0.5814
+  - lady: 0.5709
+  - person: 0.5685
+  - scientist: 0.5589
+  - guy: 0.5422
+  - journalist: 0.5410
+  - cop: 0.5390
+- Words similar to "awful"
+  - terrible: 0.8230
+  - horrible: 0.8029
+  - dreadful: 0.7437
+  - laughable: 0.6999
+  - atrocious: 0.6990
+  - horrendous: 0.6948
+  - lame: 0.6779
+  - pathetic: 0.6740
+  - abysmal: 0.6733
+  - ridiculous: 0.6660
+- Words similar to "embarrased"
+  - pleased: 0.6396
+  - ashamed: 0.6032
+  - shocked: 0.6024
+  - sorry: 0.5790
+  - delighted: 0.5773
+  - disgusted: 0.5657
+  - thrilled: 0.5652
+  - amused: 0.5594
+  - warned: 0.5373
+  - surprised: 0.5371
+- Words similar to "happy"
+  - afraid: 0.4945
+  - prepared: 0.4944
+  - ready: 0.4899
+  - satisfied: 0.4846
+  - lucky: 0.4693
+  - disappointed: 0.4605
+  - wanting: 0.4384
+  - pleased: 0.4328
+  - sweet: 0.4303
+  - sad: 0.4237
+- Words similar to "action"
+  - suspense: 0.5820
+  - packed: 0.5540
+  - adventure: 0.5424
+  - thrills: 0.5341
+  - exciting: 0.5168
+  - explosions: 0.5074
+  - arts: 0.5054
+  - kung: 0.4994
+  - paced: 0.4950
+  - fu: 0.4936
+------------------------------
+>> Model with minimum word count of 20 and context size of 50
+- Words similar to "man"
+  - doctor: 0.5464
+  - woman: 0.5290
+  - lad: 0.5078
+  - boy: 0.4954
+  - businessman: 0.4821
+  - psychiatrist: 0.4554
+  - lunatic: 0.4476
+  - politician: 0.4466
+  - himself: 0.4459
+  - bloke: 0.4396
+- Words similar to "awful"
+  - terrible: 0.8290
+  - horrible: 0.8122
+  - atrocious: 0.7181
+  - dreadful: 0.7115
+  - horrendous: 0.7021
+  - lame: 0.6930
+  - crappy: 0.6930
+  - laughable: 0.6782
+  - pathetic: 0.6714
+  - stupid: 0.6653
+- Words similar to "embarrased"
+  - sorry: 0.5992
+  - shocked: 0.5912
+  - inclined: 0.5506
+  - ashamed: 0.5120
+  - delighted: 0.5083
+  - prepared: 0.5083
+  - pleased: 0.5034
+  - excited: 0.4978
+  - pretending: 0.4942
+  - tempted: 0.4892
+- Words similar to "happy"
+  - wanting: 0.4714
+  - afraid: 0.4467
+  - gonna: 0.4433
+  - lucky: 0.4366
+  - ready: 0.4364
+  - satisfied: 0.4226
+  - sad: 0.4215
+  - cute: 0.4101
+  - happily: 0.4008
+  - tears: 0.3888
+- Words similar to "action"
+  - fight: 0.6027
+  - kung: 0.5969
+  - martial: 0.5894
+  - arts: 0.5796
+  - jackie: 0.5634
+  - explosions: 0.5619
+  - packed: 0.5523
+  - fu: 0.5481
+  - stunts: 0.5477
+  - cliffhanger: 0.5443
+------------------------------
+>> Model with minimum word count of 40 and context size of 10
+- Words similar to "man"
+  - woman: 0.6563
+  - boy: 0.5997
+  - doctor: 0.5930
+  - soldier: 0.5875
+  - lady: 0.5788
+  - scientist: 0.5662
+  - monk: 0.5632
+  - businessman: 0.5609
+  - cop: 0.5435
+  - murderer: 0.5399
+- Words similar to "awful"
+  - horrible: 0.7889
+  - terrible: 0.7797
+  - dreadful: 0.7259
+  - atrocious: 0.7116
+  - pathetic: 0.6635
+  - laughable: 0.6541
+  - lame: 0.6536
+  - horrendous: 0.6522
+  - bad: 0.6462
+  - appalling: 0.6449
+- Words similar to "embarrased"
+  - shocked: 0.6344
+  - delighted: 0.5827
+  - sorry: 0.5756
+  - pleased: 0.5696
+  - ashamed: 0.5622
+  - tempted: 0.5518
+  - fascinated: 0.5466
+  - prepared: 0.5434
+  - disgusted: 0.5346
+  - compelled: 0.5311
+- Words similar to "happy"
+  - afraid: 0.5111
+  - satisfied: 0.4855
+  - disappointed: 0.4504
+  - ready: 0.4470
+  - lucky: 0.4448
+  - pleased: 0.4263
+  - wanting: 0.4231
+  - excited: 0.4189
+  - safe: 0.4178
+  - sad: 0.4156
+- Words similar to "action"
+  - suspense: 0.5750
+  - thrills: 0.5437
+  - adventure: 0.5337
+  - paced: 0.5210
+  - explosions: 0.5156
+  - exciting: 0.5121
+  - packed: 0.4957
+  - arts: 0.4773
+  - gore: 0.4733
+  - slasher: 0.4682
+------------------------------
+>> Model with minimum word count of 40 and context size of 50
+- Words similar to "man"
+  - doctor: 0.5464
+  - woman: 0.5290
+  - lad: 0.5078
+  - boy: 0.4954
+  - businessman: 0.4821
+  - psychiatrist: 0.4554
+  - lunatic: 0.4476
+  - politician: 0.4466
+  - himself: 0.4459
+  - bloke: 0.4396
+- Words similar to "awful"
+  - terrible: 0.8290
+  - horrible: 0.8122
+  - atrocious: 0.7181
+  - dreadful: 0.7115
+  - horrendous: 0.7021
+  - lame: 0.6930
+  - crappy: 0.6930
+  - laughable: 0.6782
+  - pathetic: 0.6714
+  - stupid: 0.6653
+- Words similar to "embarrased"
+  - sorry: 0.5992
+  - shocked: 0.5912
+  - inclined: 0.5506
+  - ashamed: 0.5120
+  - delighted: 0.5083
+  - prepared: 0.5083
+  - pleased: 0.5034
+  - excited: 0.4978
+  - pretending: 0.4942
+  - tempted: 0.4892
+- Words similar to "happy"
+  - wanting: 0.4714
+  - afraid: 0.4467
+  - gonna: 0.4433
+  - lucky: 0.4366
+  - ready: 0.4364
+  - satisfied: 0.4226
+  - sad: 0.4215
+  - cute: 0.4101
+  - happily: 0.4008
+  - tears: 0.3888
+- Words similar to "action"
+  - fight: 0.6027
+  - kung: 0.5969
+  - martial: 0.5894
+  - arts: 0.5796
+  - jackie: 0.5634
+  - explosions: 0.5619
+  - packed: 0.5523
+  - fu: 0.5481
+  - stunts: 0.5477
+  - cliffhanger: 0.5443
+------------------------------
+
